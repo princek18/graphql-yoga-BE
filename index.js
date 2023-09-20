@@ -1,5 +1,6 @@
 const { GraphQLServer } = require("graphql-yoga");
 const { createWriteStream } = require("fs");
+const { default: axios } = require("axios");
 
 const typeDefs = `
   scalar Upload
@@ -10,6 +11,7 @@ const typeDefs = `
 
   type Query {
     hello: String
+    testing: String
   }
 `;
 
@@ -30,7 +32,8 @@ const resolvers = {
     }
   },
   Query: {
-    hello: () => "hi"
+    hello: () => "hi",
+    testing: () => "Yes it is working!"
   }
 };
 
